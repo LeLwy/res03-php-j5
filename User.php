@@ -7,7 +7,7 @@ class User{
     private string $lastname;
     private string $email;
     
-    public function __construct(int $id, string $firstname, string $lastname, string $email){
+    public function __construct(string $firstname, string $lastname, string $email){
         
         $this->id = -1;
         $this->firstname = $firstname;

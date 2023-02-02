@@ -14,7 +14,7 @@ class User{
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->email = $email;
-        $this->grades = $grades;
+        $this->grades = [];
     }
     
     public function getId() : int
@@ -78,7 +78,7 @@ class User{
     public function addGrade($int) : array
     {
         
-        $this->grades.array_push($int);
+        array_push($this->grades, $int);
         
         return $this->grades;
     }
@@ -98,17 +98,22 @@ class User{
         return $this->grades;
     }
     
-    public function getAverage() : float
+    public function getAverage() : ?float
     {
         
-        $total = 0;
-        
-        for($i = 0; $i < count($this->grades); $i++){
+        if(count($this->grades) !== 0){
             
-            $total += $this->grades[$i];
+            $total = 0;
+            
+            for($i = 0; $i < count($this->grades); $i++){
+                
+                $total += $this->grades[$i];
+            }
+            
+            return $total/count($this->grades);
         }
         
-        return $total/count($this->grades);
+        return null;
     }
 }
 

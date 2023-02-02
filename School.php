@@ -48,15 +48,13 @@ class School{
     public function addStudent(Student $student) : array
     {
         
-        $this->students.array_push($student);
+        array_push($this->students, $student);
         
         return $this->students;
     }
     
     public function removeStudent(Student $student) : array
     {
-        
-        $updatedStudents = [];
         
         for($i = 0; $i < count($this->students); $i++)
         {
